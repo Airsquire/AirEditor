@@ -240,8 +240,21 @@ Menubar.File = function ( editor ) {
 	} );
 	options.add( option );
 
-	//
+	// Eport PLY
 
+	var option = new UI.Row();
+	option.setClass('option');
+	option.setTextContent('Export PLY');
+	option.onClick(function() {
+		var object = editor.selected;
+		let exporter = new AIRSQUIRE.PLYExporter();
+		//exporter.parse(object)
+		saveString(exporter.parse(object), 'model.ply');
+	});
+	options.add( option );
+
+	//
+	
 	options.add( new UI.HorizontalRule() );
 
 	// Publish
