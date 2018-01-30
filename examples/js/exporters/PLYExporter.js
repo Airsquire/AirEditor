@@ -34,15 +34,21 @@ AIRSQUIRE.PLYExporter.prototype = {
         output += 'property float z\n';
         output += 'element face 0\n';
         output += 'end_header\n'
-
+        var vertex = new THREE.Vector3();
         if(object.geometry instanceof THREE.BufferGeometry) {
-            for (var i = 0 ; i < object.geometry.attributes.position.count; i += 3) {
-                output += object.geometry.attributes.position.array[i] + ' ';
-                output += object.geometry.attributes.position.array[i+1] + ' ';
-                output += object.geometry.attributes.position.array[i+2] + '\n';
+            for (var i = 0 ; i < object.geometry.attributes.position.count; i++) {
+                vertex.x =  object.geometry.attributes.position.array[i*3];
+                vertex.y =  object.geometry.attributes.position.array[i*3 + 1];
+                vertex.z =  object.geometry.attributes.position.array[i*3 + 2];
+                // transfrom the vertex to world space
+				vertex.applyMatrix4( object.matrixWorld );
+                output += vertex.x + ' ';
+                output += vertex.y + ' ';
+                output += vertex.z + '\n';
             }
         } else if (object.geometry instanceof THREE.Geometry) {
             for (var i = 0; i < object.geometry.vertices.count; i ++) {
+                object.geometry.vertices[i].applyMatrix4(object.matrixWorld);
                 output += object.geometry.vertices[i].x + ' ';
                 output += object.geometry.vertices[i].y + ' ';
                 output += object.geometry.vertices[i].z + '\n';
