@@ -37,9 +37,9 @@ AIRSQUIRE.PLYExporter.prototype = {
 
         if(object.geometry instanceof THREE.BufferGeometry) {
             for (var i = 0 ; i < object.geometry.attributes.position.count; i++) {
-                output += object.geometry.attributes.position.array[i] + ' ';
-                output += object.geometry.attributes.position.array[i+1] + ' ';
-                output += object.geometry.attributes.position.array[i+2] + '\n';
+                output += object.geometry.attributes.position.array[i*3] + ' ';
+                output += object.geometry.attributes.position.array[i*3+1] + ' ';
+                output += object.geometry.attributes.position.array[i*3+2] + '\n';
             }
         } else if (object.geometry instanceof THREE.Geometry) {
             for (var i = 0; i < object.geometry.vertices.count; i ++) {
