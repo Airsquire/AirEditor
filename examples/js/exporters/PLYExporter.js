@@ -36,7 +36,7 @@ AIRSQUIRE.PLYExporter.prototype = {
         output += 'end_header\n'
 
         if(object.geometry instanceof THREE.BufferGeometry) {
-            for (var i = 0 ; i < object.geometry.attributes.position.count; i += 3) {
+            for (var i = 0 ; i < object.geometry.attributes.position.count; i++) {
                 output += object.geometry.attributes.position.array[i] + ' ';
                 output += object.geometry.attributes.position.array[i+1] + ' ';
                 output += object.geometry.attributes.position.array[i+2] + '\n';
