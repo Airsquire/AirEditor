@@ -1,5 +1,9 @@
 {
-  "name": "AirEditor",
+  "name": "Air_Editor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Airsquire/AirEditor.git"
+  },
   "version": "0.1.0",
   "description": "AirSquire Web BIM Editor",
   "files": [
