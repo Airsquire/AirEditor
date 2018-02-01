@@ -17,7 +17,8 @@
     "examples/fonts"
   ],
   "scripts": {
-    "editor": "electron ./editor/main.js"
+    "editor": "electron ./editor/main.js",
+    "start": "http-server ./"
   },
   "keywords": [
     "AirSquire",
@@ -32,8 +33,11 @@
   "devDependencies": {
     "electron": "1.7.11"
   },
-  "engines" : {
-    "node" : ">= 9.2.1",
-    "npm" : ">= 5.6.0"
+  "engines": {
+    "node": ">= 9.2.1",
+    "npm": ">= 5.6.0"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
   }
 }

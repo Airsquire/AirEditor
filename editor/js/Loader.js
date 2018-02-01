@@ -323,9 +323,7 @@ var Loader = function ( editor ) {
 				reader.addEventListener( 'load', function ( event ) {
 
 					var contents = event.target.result;
-
-
-
+					
 					var geometry = new THREE.PLYLoader().parse( contents );
 					geometry.sourceType = "ply";
 					geometry.sourceFile = file.name;
@@ -375,26 +373,6 @@ var Loader = function ( editor ) {
 				}
 
 				break;
-
-			/*
-			case 'utf8':
-
-				reader.addEventListener( 'load', function ( event ) {
-
-					var contents = event.target.result;
-
-					var geometry = new THREE.UTF8Loader().parse( contents );
-					var material = new THREE.MeshLambertMaterial();
-
-					var mesh = new THREE.Mesh( geometry, material );
-
-					editor.execute( new AddObjectCommand( mesh ) );
-
-				}, false );
-				reader.readAsBinaryString( file );
-
-				break;
-			*/
 
 			case 'vtk':
 

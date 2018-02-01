@@ -248,8 +248,7 @@ Menubar.File = function ( editor ) {
 	option.onClick(function() {
 		var object = editor.selected;
 		let exporter = new AIRSQUIRE.PLYExporter();
-		//exporter.parse(object)
-		saveString(exporter.parse(object), 'model.ply');
+		exporter.saveToFile(object)
 	});
 	options.add( option );
 
