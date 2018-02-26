@@ -293,7 +293,16 @@ var Loader = function ( editor ) {
 
 					var object = new THREE.OBJLoader().parse( contents );
 					object.name = filename;
-
+					const outlineMaterial = new THREE.MeshBasicMaterial({
+						color: 0x0000ff,
+						side: THREE.DoubleSide,
+						wireframe: true
+					})
+					object.traverse(node => {
+						if (node.isMesh) {
+						  node.material = outlineMaterial
+						}
+					})
 					editor.execute( new AddObjectCommand( object ) );
 
 				}, false );
